@@ -1,0 +1,54 @@
+
+
+.floating-dot {  
+    position: absolute;
+    transition: top 2s ease, left 2s ease, width 0.5s ease, height 0.5s ease, border-radius 0.5s ease, background-color 0.5s ease;
+    cursor: pointer;
+    animation: gentleFloat 3s infinite alternate;  
+    z-index: 2;
+  }
+  
+  
+  .quote-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    text-shadow:
+      -1px -1px 0 #171b26,  
+      1px -1px 0 #171b26,
+      -1px 1px 0 #171b26,
+      1px 1px 0 #171b26;
+    z-index: 3;
+  }
+  
+  .message, .author {
+    font-size: 13pt;
+    font-style: italic;
+    margin-bottom: 10px;
+    color: #a0a0a0;
+    text-align: center;
+    opacity: 0;
+    filter: blur(5px);
+    animation: fadeInBlur 2s ease forwards;
+    position: relative;
+    z-index: 3;
+  }
+  
+  .author {
+    font-weight: bold;
+    margin-top: 5px;
+    font-size: 13pt;
+  }
+  
+  @keyframes fadeInBlur {
+    0% {
+      opacity: 0;
+      filter: blur(5px);
+    }
+    100% {
+      opacity: 1;
+      filter: blur(0px);
+    }
+  }
+  

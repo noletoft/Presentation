@@ -1,0 +1,466 @@
+<div class="panel-group">
+    <div class="panel panel-default">        
+        <div id="divTitle_@ItemId" onclick=window["anchorToTop_@ItemId"]('divTitle_@ItemId') class="panel-heading table-responsive" style="background-color:@itemColor; padding:1px 5px">
+            <table>
+                <tr id="trTitleTop_@ItemId" style="display:none">
+                    <td colspan="4">
+                        <div id="divTitleTop_@ItemId" class="mobile-title" >
+                            <p >@videoTitle</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="tdThumbnail_@ItemId" style="padding: 4px 0px; width: 10%; position:relative">
+                        <a data-toggle="collapse" class="inactiveLink" href="#collapse11_@ItemId">
+                            <img class="img-rounded img-responsive" style="max-width:100px; max-height:100px" src='@thumbnail' />
+                            <div id="divImgTime_@ItemId" class="time-img">Loading...</div>
+                        </a>
+                    </td>
+                    <td style="padding-left: 5px; width: 2%;">
+                        <div id="bars_@ItemId" style="display: none; height: 1em; position: relative;">
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                        </div>
+                        <p>
+                            <div id="divDownloaded_@ItemId" style="display:none;border-radius: 10px; background-color: greenyellow; width: 12px; height: 12px; border: solid; border-width: thin;"></div>
+                        </p>
+                    </td>
+                    <td style="padding-left: 10px; padding-right: 10px;">
+                        <a data-toggle="collapse" class="inactiveLink" style="text-decoration:none; color:black;" href="#collapse11_@ItemId">
+                            <div id="divTitleCenter_@ItemId" style="width:auto; font-size:12pt; font-family:Verdana; text-align:left">
+                                @videoTitle
+                            </div>
+                            <div id="divImgTimeMob_@ItemId" style="display:none" class="time-img-mob">Loading...</div>
+                        </a>
+                    </td>
+                    <td class="text-right" style="width:2%; text-align:-webkit-center">
+                        <span class="panel-title btn-group">
+                            <a id="btnDownload_@ItemId" href='@Url.Action("Download", "Home", new { ItemId = ItemId })' target="_blank" class="btn btn-success" style="color: white; text-shadow: none;">
+                                <span class="glyphicon glyphicon-download-alt"></span>
+                                <span><strong>Ready!</strong></span>
+                            </a>
+                        </span>
+                    </td>
+                </tr>
+            </table>
+            <table width="100%">
+                <tr>
+                    <td id="prgBar1_@ItemId" colspan="2" style="display:none">
+                        <div class="progress" style="margin-bottom:0px; height: 10px;">
+                            <div id="divProgDownload_@ItemId" class="progress-bar progress-bar-success progress-bar-striped" style="width: 0%">
+                            </div>
+                            <div id="divProgConvert_@ItemId" class="progress-bar progress-bar-success progress-bar-striped" style="width: 0%">
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="panel-title">
+                <div class="container-fluid panel-container">
+                </div>
+            </div>
+        </div>
+        <div id="collapse11_@ItemId" class="panel-collapse collapse" style="padding-top: 8px;">            
+            <div id="divCredits_@ItemId" class="showHide-credits" onclick="showHideGuide('divCredits_@ItemId', 'credits_@ItemId', 'Show Credits', 'Hide Credits')">Show Credits</div>
+            <div id="credits_@ItemId" style="display: none; background-color: #efefef; padding-bottom : 100px">
+                <div style="padding-bottom:10px">
+                    - Its optional, but also it's a good practice to share the source of your work, then share it anywhere like social media.
+                </div>                 
+                <div style="background-color: rgb(239 239 239) ">
+                    <div style="padding-bottom:1px">
+                        <table>
+                            <tr>
+                                <td style="padding-left:5px">
+                                    <a id="btnHashTags_@ItemId" target="_blank" onclick=window["generateHashTag_@ItemId"]() class="btn btn-info" style="color: white; text-shadow: none; text-decoration:none">
+                                        <span>
+                                            <img width="18px" src="~/Imgs/instagranLogo.png" />
+                                        </span>
+                                        <span id="btnHashTagsText_@ItemId">Add Hashtags</span>
+                                    </a>                                    
+                                </td>
+                                <td style="padding-left:5px">
+                                    <a id="btnCopy_@ItemId" target="_blank" onclick=window["copyToClipboard_@ItemId"]() class="btn btn-info" style="color: white; text-shadow: none; text-decoration:none">
+                                        <span class="glyphicon glyphicon-edit"></span>
+                                        <span>Copy</span>
+                                    </a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>                    
+                    <div style="float: left; width: 100%;">
+                        <textarea id="taCredits_@ItemId" style="width: 100%; max-width: 100%; text-align: left; background-color: aliceblue; border-color: #ffffff; border-top-color: aliceblue; ">
+———— Credits ————
+Youtube channel : @chanelName
+https://www.youtube.com/watch?v=@videoId
+
+Generated by: Podcast it!
+https://podcast-it.noleheroes.com
+                        </textarea>
+                    </div>
+                </div><br>
+
+                <div id="creditsFinalMessage_@ItemId" style="background-color:lightgoldenrodyellow; display:none">
+                    Cool! Now you can paste it anywhere and tell to people where your work comes from <span class="glyphicon glyphicon-thumbs-up"></span>
+                </div>
+            </div>
+            <div id="divPanelContent_@ItemId" style="padding-top: 0px;" class="panel-body panel-content" autofocus>
+                <p>                    
+                    <div id="divNeedExtraPurchase_@ItemId" style="padding-bottom: 13px; padding-right: 10px; display: none;">
+                        <a style="text-decoration:none; color:forestgreen" onclick="goToStore()">
+                            <div style="background-color:#ece96b; text-shadow: none; text-align:left; border-radius: 5px; padding: 5px 5px 5px 5px;">
+                                Do you want to work with videos bigger then 20 minutes?, so check it out. <span class="glyphicon glyphicon-shopping-cart"></span>
+                            </div>
+                        </a>
+                    </div>
+                    <div id="divMessage_@ItemId" style="padding-bottom: 13px; padding-right: 10px; display: none;">
+                        <div id="divMessageContent_@ItemId" style="background-color: #ffb75f; color: black; text-shadow: none; border-radius: 5px; padding: 5px 5px 5px 5px;"></div>
+                    </div>
+                    <div class="row col-md-12" style="padding:0px 0px">
+                        <div class="col-md-5">
+                            <div class="img-rounded embed-responsive embed-responsive-16by9">
+                                <div class="embed-responsive-item" style="display:flex;justify-content:center;align-items:center;">
+                                    <div>
+                                        <div id="youtube-player_@ItemId"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                            <div id="fsetCutControls_@ItemId" style="display: none;">
+                                <legend id="lgdOpt1_@ItemId" style="color:black;font-weight:bold;">Cut option 1</legend>
+                                <table id="tblCutControl_@ItemId" width="100%">
+                                    <tr>
+                                        <td width="100%" style="font-weight: bold; padding: 5px 8px 15px 8px">
+                                            <div id="divSetStart_@ItemId">
+                                                <button id="btnSetStart_@ItemId" type="button" class="btn btn-primary" onclick=window["SetStartTime_@ItemId"]()>
+                                                    <span>Set Start : </span>
+                                                    <span id="spnSetStart_@ItemId">00:00:00</span>
+                                                </button>
+                                            </div>
+                                        </td>
+                                        <td width="50%" style="padding: 5px 8px 15px 8px;">
+                                            <div id="divSetEnd_@ItemId">
+                                                <button id="btnSetEnd_@ItemId" type="button" class="btn btn-primary" onclick=window["SetEndTime_@ItemId"]()>
+                                                    <span>Set End : </span>
+                                                    <span id="spnSetEnd_@ItemId">00:00:00</span>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <table id="tblProgressInfo_@ItemId" width="100%" class="table table-sm">
+                                <tr>
+                                    <td width="50%" style="font-weight: bold; padding: 5px 0px 5px 15px; color:maroon">Process Type :</td>
+                                    <td style="padding: 5px 0px 5px 20px; color:maroon"><div id="divProcessType_@ItemId" />- - -</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold; padding: 5px 0px 5px 15px;">Process Status :</td>
+                                    <td style="padding: 5px 0px 5px 20px;"><div id="divProcessStatus_@ItemId" />- - -</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold; padding: 5px 0px 5px 15px;">Total Time :</td>
+                                    <td style="padding: 5px 0px 5px 20px;"><div id="divTotalTime_@ItemId" />- - -</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold; padding: 5px 0px 5px 15px;">Bitrate (kb/s) :</td>
+                                    <td style="padding: 5px 0px 5px 20px;"><div id="divBitrate_@ItemId" />- - -</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold;padding: 5px 0px 5px 15px;">File Size :</td>
+                                    <td style="padding: 5px 0px 5px 20px;"><div id="divFileSize_@ItemId" />- - -</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="panel-group" style="margin-bottom: 5px;" id="accordion_@ItemId">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" style="background-color:@itemColor">
+                                        <div id="divCutHeader_@ItemId" class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion_@ItemId" href="#collapse3_@ItemId">
+                                                <div style="color:black"><span class="glyphicon glyphicon-scissors" /><span style="font-family:Verdana"> Cut (Audio or Video)</span></div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div id="collapse3_@ItemId" class="panel-collapse collapse">
+                                        <div id="divCropBody_@ItemId" class="panel-body" style="padding: 5px 5px 5px 5px;">
+                                            <div id="divCropContent_@ItemId">
+                                                <div id="crpShowHideGuide_@ItemId" class="showHide-guide" onclick="showHideGuide('crpShowHideGuide_@ItemId', 'crpGuide_@ItemId', 'Show guide', 'Hide guide')">Show guide</div>
+                                                <div id="crpGuide_@ItemId" style="display: none; background-color: #efefef; padding: 3px 10px 5px 10px;">
+                                                    • <a style="color:#483eea; text-decoration:none; font-weight:unset" onmouseover="highlightControl('lgdOpt1_@ItemId', 'over')" onmouseout="highlightControl('lgdOpt1_@ItemId', 'out')">Cut option 1</a> - Play the video and capture the time to start then the time to end, now you have a time range to cut.<br>
+                                                    • <a style="color:#483eea; text-decoration:none; font-weight:unset" onmouseover="highlightControl('lgdOpt2_@ItemId', 'over')" onmouseout="highlightControl('lgdOpt2_@ItemId', 'out')">Cut option 2</a> - Slide it until you find the desired time range to cut, its valid for audio and video.
+                                                </div><br />
+                                                <div id="divCropControls_@ItemId">
+                                                    <table width="100%">
+                                                        <tr>
+                                                            <td width="90%">
+                                                                <label for="time1_@ItemId">Range: <span id="divTimePreview_@ItemId" class="cropTimer crop-time-result" /></label>
+                                                            </td>
+                                                            <td style="text-align:right; padding-right: 5px">
+                                                                <div id="divRdAudio_@ItemId" class="form-check">
+                                                                    <input type="radio" class="form-check-input" id="chkAudio_@ItemId" onclick=window["setCropBtnText_@ItemId"]() name="groupOfMedia_@ItemId" checked>
+                                                                </div>
+                                                            </td>
+                                                            <td class="tdAudio">
+                                                                <label class="form-check-label" for="chkAudio_@ItemId">Audio</label>
+                                                            </td>
+                                                            <td class="tdVideo">
+                                                                <div id="divRdVideo_@ItemId" class="form-check">
+                                                                    <input type="radio" checked="checked" class="form-check-input" id="chkVideo_@ItemId" onclick=window["setCropBtnText_@ItemId"]() name="groupOfMedia_@ItemId">
+                                                                </div>
+                                                            </td>
+                                                            <td style="text-align:right; width:5%">
+                                                                <label class="form-check-label" for="chkVideo_@ItemId">Video</label>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                    <div class="form-check" style="text-align:start">
+                                                        <input type="checkbox" checked="checked" class="form-check-input" id="chkBoostQualityCrp_@ItemId">
+                                                        <label class="form-check-label" style="display:unset" for="chkBoostQualityCrp_@ItemId">Boost it's quality</label>
+                                                    </div>
+                                                    <br>
+                                                    <legend id="lgdOpt2_@ItemId" style="color:black;font-weight:bold;">Cut option 2</legend>
+                                                    <p>
+                                                        <table width="100%">
+                                                            <tr class="cropTimer">
+                                                                <td style="padding-left: 12px; padding-bottom:8px">
+                                                                    <div id="lblTime1_@ItemId" />
+                                                                </td>
+                                                                <td style="padding-left: 10px; padding-right: 12px; padding-bottom:8px; text-align:end">
+                                                                    <div id="lblTime2_@ItemId" />
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                        <table width="100%">
+                                                            <tr class="center-element">
+                                                                <td style="padding-left: 10px;">
+                                                                    <button id="btnRefineStartLeft_@ItemId" type="button" class="btn btn-primary btn-sm" onclick=window["startLeftArrow_@ItemId"]()>
+                                                                        <span id="spnRefineStartLeft_@ItemId" class="glyphicon glyphicon-arrow-left"></span>
+                                                                    </button>
+                                                                </td>
+                                                                <td style="padding-left: 10px;">
+                                                                    <button id="btnRefineStartRight_@ItemId" type="button" class="btn btn-primary btn-sm" onclick=window["startRightArrow_@ItemId"]()>
+                                                                        <span id="spnRefineStartRight_@ItemId" class="glyphicon glyphicon-arrow-right"></span>
+                                                                    </button>
+                                                                </td>
+                                                                <td width="100%">
+                                                                    Refine
+                                                                </td>
+                                                                <td>
+                                                                    <button id="btnRefineEndLeft_@ItemId" type="button" class="btn btn-primary btn-sm" onclick=window["endLeftArrow_@ItemId"]()>
+                                                                        <span id="spnRefineEndLeft_@ItemId" class="glyphicon glyphicon-arrow-left"></span>
+                                                                    </button>
+                                                                </td>
+                                                                <td style="padding-left: 10px; padding-right: 10px">
+                                                                    <button id="btnRefineEndRight_@ItemId" type="button" class="btn btn-primary btn-sm" onclick=window["endRightArrow_@ItemId"]()>
+                                                                        <span id="spnRefineEndRight_@ItemId" class="glyphicon glyphicon-arrow-right"></span>
+                                                                    </button>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </p>
+                                                    <div id="divCropGroup_@ItemId" class="timeRangeSlider">
+                                                        <div id="theTimeRange_@ItemId" class="time-slider" data-role="rangeslider">
+                                                            <input type="range" step="1" style="margin: 0 5px" name="time1_@ItemId" id="time1_@ItemId" min="0" max="50000" value="0" data-show-value="false" data-popup-enabled="false" />
+                                                            <input type="range" step="1" style="margin: 0 5px" name="time2_@ItemId" id="time2_@ItemId" min="0" max="50000" value="50000" data-show-value="false" data-popup-enabled="false" />
+                                                        </div>
+                                                        <input id="slider1_@ItemId" style="display:none" type="text" data-role="none" value="" disabled />
+                                                        <input id="slider2_@ItemId" style="display: none" type="text" data-role="none" value="" disabled />
+                                                    </div>
+
+                                                </div>
+                                                <div class="progress" style="margin-bottom:3px; height:10px">
+                                                    <div id="prgPreview_@ItemId" class="progress-bar progress-bar-info" style="width: 0%">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="panel-footer" style="background-color:@itemColor">
+                                                <table width="100%">
+                                                    <tr>
+                                                        <td>
+                                                            <div id="youtube-playControl_@ItemId" data-video='@videoId' data-autoplay="0" data-loop="0">
+                                                                <button id="btnPreview_@ItemId" type="button" class="btn btn-primary" onclick=window["toggleAudio_@ItemId"]()>
+                                                                    <span id="spnPreviewGlyphicon_@ItemId" class="glyphicon glyphicon-play"></span>
+                                                                    <span id="spnBtnText_@ItemId">Start Preview</span>
+                                                                </button>
+                                                            </div>
+                                                        </td>
+                                                        <td style="text-align: right">
+                                                            <button id="btnCrop_@ItemId" type="button" class="btn btn-info" onclick=window["cropContent_@ItemId"]()>
+                                                                <span id="spnCropGlyph_@ItemId" class="glyphicon glyphicon-scissors"></span>
+                                                                <span id="spnCropBtnText_@ItemId"> Cut VIDEO range</span>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" style="background-color:@itemColor">
+                                        <div id="divExtHeader_@ItemId" class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion_@ItemId" href="#collapse1_@ItemId">
+                                                <div style="color:black"><span class="glyphicon glyphicon-log-out" /><span style="width:auto;font-size:12pt; font-family:Verdana"> Extract Audio</span></div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div id="collapse1_@ItemId" class="panel-collapse collapse">
+                                        <div id="divExtractBody_@ItemId" class="panel-body" style="padding: 5px 5px 5px 5px;">
+                                            <div id="extShowHideGuide_@ItemId" class="showHide-guide" onclick="showHideGuide('extShowHideGuide_@ItemId', 'extGuide_@ItemId', 'Show guide', 'Hide guide')">Show guide</div>
+                                            <div id="extGuide_@ItemId" style="display: none; background-color: #efefef; padding: 3px 10px 5px 10px;">
+                                                It's a straight forward action, just push the botton below to extract the audio from this video.
+                                            </div>
+                                            <div class="panel-footer" style="background-color:@itemColor">
+                                                <table width="100%">
+                                                    <tr>
+                                                        <td width="60%">
+                                                            <div style="display:block" class="form-check">
+                                                                <input type="checkbox" checked="checked" class="form-check-input" id="chkBoostQualityExt_@ItemId">
+                                                                <label class="form-check-label" style="display:unset" for="chkBoostQualityExt_@ItemId">Boost it's quality</label>
+                                                            </div>
+                                                        </td>
+                                                        <td style="text-align: right">
+                                                            <a id="btnExtract_@ItemId" class="btn btn-info" style="color: white; text-shadow: none;" onclick=window["extractContent_@ItemId"]()>
+                                                                <span id="spnExtractGlyph_@ItemId" class="glyphicon glyphicon-log-out"></span>
+                                                                <span id="spnExtractBtnText_@ItemId"> Extract Audio</span>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" style="background-color:@itemColor">
+                                        <div id="divSplitHeader_@ItemId" class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion_@ItemId" href="#collapse2_@ItemId">
+                                                <div style="color:black"><span class="glyphicon glyphicon-sound-stereo" /><span style="font-family:Verdana"> Split (Audio or Video)</span></div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div id="collapse2_@ItemId" class="panel-collapse collapse">
+                                        <div id="divSplitBody_@ItemId" class="panel-body" style="padding: 5px 5px 5px 5px;">
+                                            <div id="divSplitContent_@ItemId">
+                                                <div id="splShowHideGuide_@ItemId" class="showHide-guide" onclick="showHideGuide('splShowHideGuide_@ItemId', 'splGuide_@ItemId', 'Show guide', 'Hide guide')">Show guide</div>
+                                                <div id="splGuide_@ItemId" style="display:none; background-color: #efefef; padding: 3px 10px 5px 10px;">
+                                                    • Do a <a style="color:#483eea; text-decoration:none; font-weight:unset" onmouseover="highlightControl('lnkRdbParts_@ItemId', 'over')" onmouseout="highlightControl('lnkRdbParts_@ItemId', 'out')">split in equal parts</a> if you want to break this audio by the number selected, this option breaks in max of 5 parts, in case you need to break it more do it by minutes.<br />
+                                                    • <a style="color:#483eea; text-decoration:none; font-weight:unset" onmouseover="highlightControl('lnkRdbMinutes_@ItemId', 'over')" onmouseout="highlightControl('lnkRdbMinutes_@ItemId', 'out')">Splitting it by minutes</a> give to you the same amount of time for all parts.<br />
+                                                    • <a style="color:#483eea; text-decoration:none; font-weight:unset" onmouseover="highlightControl('lnkSeamless_@ItemId', 'over')" onmouseout="highlightControl('lnkSeamless_@ItemId', 'out')">Seamless cut</a> splits in a conventional way, for instance if the first part finishes on 00:12:00, the next one will start at 00:12:01.<br />
+                                                    • On the other hand <a style="color:#483eea; text-decoration:none; font-weight:unset" onmouseover="highlightControl('lnkrd5sDelay_@ItemId', 'over')" onmouseout="highlightControl('lnkrd5sDelay_@ItemId', 'out')">5 seconds delay</a> means for instance if the first part finishes on 00:12:00, the next one will start at 00:11:55.
+                                                </div>
+                                                <div style="padding-top: 10px;">
+                                                    <table width="100%">
+                                                        <tr>
+                                                            <td style="text-align:left; padding-right: 5px; padding-left:5px; width:5px">
+                                                                <input type="radio" class="form-check-input" id="chkParts_@ItemId" onclick=window["calculateParts_@ItemId"]() name="groupSplit_@ItemId" checked>
+                                                            </td>
+                                                            <td id="tdPartsDesc_@ItemId" style="width:80%; white-space:nowrap">
+                                                                <label class="form-check-label" for="chkAudio_@ItemId"><a id="lnkRdbParts_@ItemId" style="border-radius:6px; text-decoration: none; color: #3c95fd; font-weight: bold;" onclick=window["calculateParts_@ItemId"]()>Split it in equal Parts</a></label>
+                                                            </td>
+                                                            <td style="text-align:left; padding-right: 5px; padding-left:5px; width:5px">
+                                                                <input type="radio" class="form-check-input" id="rdSeamless_@ItemId" onclick=window["rdSeamlessClick_@ItemId"]() name="groupSplitMode_@ItemId" checked>
+                                                            </td>
+                                                            <td style="width:100%;">
+                                                                <label class="form-check-label" for="rdSeamless_@ItemId"><a id="lnkSeamless_@ItemId" style="border-radius: 6px; text-decoration: none; color: #3c95fd; font-weight: bold; white-space: nowrap" onclick=window["rdSeamlessClick_@ItemId"]()>Seamless Cut</a></label>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="width:5px;padding-left: 5px;">
+                                                                <input type="radio" class="form-check-input" id="chkMinutes_@ItemId" onclick=window["calculateMinutes_@ItemId"]() name="groupSplit_@ItemId">
+                                                            </td>
+                                                            <td style="text-align:left; width:5%">
+                                                                <label class="form-check-label" for="chkVideo_@ItemId"><a id="lnkRdbMinutes_@ItemId" style="border-radius: 6px; text-decoration: none; color: black; font-weight: unset;" onclick=window["calculateMinutes_@ItemId"]()>Split it by Minutes</a></label>
+                                                            </td>
+                                                            <td style="text-align:left; padding-right: 5px; padding-left:5px; width:5px">
+                                                                <input type="radio" class="form-check-input" id="rd5sDelay_@ItemId" onclick=window["rd5sDelayClick_@ItemId"]() name="groupSplitMode_@ItemId">
+                                                            </td>
+                                                            <td style="width:100%;">
+                                                                <label class="form-check-label" for="rd5sDelay_@ItemId"><a id="lnkrd5sDelay_@ItemId" style="border-radius: 6px; text-decoration: none; color: black; font-weight: unset; white-space: nowrap" onclick=window["rd5sDelayClick_@ItemId"]()>5 seconds delay</a></label>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                    <table width="30%">
+                                                        <tr>
+                                                            <td style="text-align: left; padding-right: 5px; padding-left: 5px">
+                                                                <div class="form-check">
+                                                                    <input type="radio" class="form-check-input" id="chkSplAudio_@ItemId" onclick=window["setSplitBtnText_@ItemId"]() name="groupOfSplMedia_@ItemId" checked>
+                                                                </div>
+                                                            </td>
+                                                            <td class="tdAudio">
+                                                                <label class="form-check-label" for="chkSplAudio_@ItemId" style="padding-right:5px">Audio</label>
+                                                            </td>
+                                                            <td class="tdVideo">
+                                                                <div class="form-check">
+                                                                    <input type="radio" class="form-check-input" id="chkSplVideo_@ItemId" onclick=window["setSplitBtnText_@ItemId"]() name="groupOfSplMedia_@ItemId">
+                                                                </div>
+                                                            </td>
+                                                            <td style="text-align:right; width:5%">
+                                                                <label class="form-check-label" for="chkSplVideo_@ItemId" style="padding-left: 5px">Video</label>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                    <table width="100%">
+                                                        <tr>
+                                                            <td width="25%" style="padding-left: 5px;">
+                                                                <div id="splitTitle_@ItemId" style="white-space: nowrap;">Split in Parts</div>
+                                                            </td>
+                                                            <td style="padding-left:8px;">
+                                                                <select id="cmbSplit_@ItemId">
+                                                                    <option value="2">2</option>
+                                                                    <option value="3">3</option>
+                                                                    <option value="4">4</option>
+                                                                    <option value="5">5</option>
+                                                                    <option value="6">6</option>
+                                                                    <option value="7">7</option>
+                                                                    <option value="8">8</option>
+                                                                    <option value="9">9</option>
+                                                                    <option value="10">10</option>
+                                                                </select>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                    <div class="form-check">
+                                                        <input type="checkbox" class="form-check-input" id="chkBoostQualitySpl_@ItemId">
+                                                        <label class="form-check-label" style="display:unset" for="chkBoostQualitySpl_@ItemId">Boost it's quality</label>
+                                                    </div>
+                                                    <p />
+                                                    <table width="100%">
+                                                        <tr>
+                                                            <td>
+                                                                <div id="splitMessage_@ItemId" class="split-result-message" />
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <div class="panel-footer" style="background-color:@itemColor;padding-left: 10px; padding-right: 10px;">
+                                                <table width="100%">
+                                                    <tr>
+                                                        <td>
+                                                            <label class="form-check-label" style="text-shadow:none; padding-left: 10px; padding-right:5px" for="exampleCheck1">All cut files will be set into a ZIP file.</label>
+                                                        </td>
+                                                        <td style="text-align: right">
+                                                            <button id="btnSplit_@ItemId" type="button" class="btn btn-info" onclick=window["splitContent_@ItemId"]()>
+                                                                <span id="spnSplitGlyph_@ItemId" class="glyphicon glyphicon-sound-stereo"></span>
+                                                                <span id="spnSplitBtnText_@ItemId"> Split Audio</span>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
